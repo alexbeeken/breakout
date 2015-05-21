@@ -23,6 +23,18 @@ class Ball
   end
 
   def bounce
-    @angle += 0.785
+    if Math.sin(@angle) > 0 && Math.cos(@angle) > 0
+      puts("direction SE")
+      @angle += 0.785 * 2
+    elsif Math.sin(@angle) < 0 && Math.cos(@angle) > 0
+      puts("direction SW")
+      @angle += 0.785 * 2
+    elsif Math.sin(@angle) > 0 && Math.cos(@angle) < 0
+      puts("direction NE")
+      @angle += 0.785 * 2
+    elsif Math.sin(@angle) < 0 && Math.cos(@angle) < 0
+      puts("direction NW")
+      @angle += 0.785 * 2
+    end
   end
 end
